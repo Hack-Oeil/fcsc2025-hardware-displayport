@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="es">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Los CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Comprueba si la ventana está en un iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Activa el resaltado de sintaxis:
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("¡Highlight.js no cargado!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Challenge #580</h3>
+                            <h2 class="section-title">DisplayPort</h2>
+                            <p>
+Con mi sonda diferencial ultrarrápida logré medir una señal diferencial entre los pines #1 y #3 del conector DisplayPort conectado a mi PC. Es una señal serie binaria a 1,62 Gigabits por segundo. Realicé el preprocesamiento de la señal y pude reconstruir fielmente la secuencia de bits transmitida por la tarjeta gráfica (que es compatible con el estándar DisplayPort 1.2). Guardé estos bits en un archivo binario con el siguiente formato: 8 bits por byte, siendo el bit más significativo el primer bit transmitido (MSB first).
+<br /><br />
+Sé que en el momento en que capturé la señal, mi (única) pantalla estaba configurada en 800x600 75Hz 24 bits/píxel RGB 1-lane, y mostraba una fotografía de mis compañeros de oficina sosteniendo la flag en sus (pequeñas) manos.
+<br /><br />
+He perdido esta magnífica foto, ¿podrán reconstruirla a partir de esta captura?
+<br /><br />
+A continuación se muestra una foto que ilustra dónde se realizó la medición (a título meramente informativo, no es necesaria para la resolución).
+<br /><br />
+Nota: ¡no es necesario comprar estándares o normas, busquen en Internet!
+<br /><img src="assets/images/DisplayPort.jpg">
+                            </p>
+                            <h4>Archivo a estudiar:</h4>
+                            <p>../files/DisplayPort.bin</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Enlace oficial:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/hardware/fcsc2025-hardware-displayport/">https://hackropole.fr/fr/challenges/hardware/fcsc2025-hardware-displayport/</a>
+                                <br />
+                                Autor: PMR
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Aprendizaje</h3>
+                            <h2 class="section-title">Documentación y Videos</h2>
+                            <p class="section-subtitle">
+                                Ninguna documentación por el momento
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Ayuda</h3>
+                            <h2 class="section-title">Consejos y pistas</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Hilo
+                                    en Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Volver arriba" title="Volver al principio del sitio"></a>
+    </div>
+</body>
+
+</html>

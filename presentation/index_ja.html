@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="ja">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - CyrhadesのCTF</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ウィンドウがiframe内にあるか確認
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // シンタックスハイライトを有効化:
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js が読み込まれていません！");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Challenge #580</h3>
+                            <h2 class="section-title">DisplayPort</h2>
+                            <p>
+超高速差動プローブを使用して、PCに接続されたDisplayPortコネクタのピン#1と#3の間の差動信号を測定することに成功しました。これは1.62 Gbpsのバイナリシリアル信号です。信号の前処理を行い、ビデオカード（DisplayPort 1.2規格準拠）から送信されたビットシーケンスを忠実に再構築できました。これらのビットを次の形式のバイナリファイルに保存しました：1バイトあたり8ビット、最上位ビット（MSB）が最初に送信されたビット（MSB first）です。
+<br /><br />
+信号をキャプチャした際、（唯一の）ディスプレイは800x600 75Hz 24ビット/ピクセル RGB 1レーンに設定されており、職場の同僚が（小さな）手でフラグを持っている写真を表示していました。
+<br /><br />
+この素晴らしい写真を紛失してしまいました。このキャプチャから復元できますか？
+<br /><br />
+以下は測定場所を示す写真です（参考情報であり、問題を解くために必須ではありません）。
+<br /><br />
+注：規格書を購入する必要はありません。インターネットで検索してください！
+<br /><img src="assets/images/DisplayPort.jpg">
+                            </p>
+                            <h4>解析対象ファイル:</h4>
+                            <p>../files/DisplayPort.bin</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                公式リンク:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/hardware/fcsc2025-hardware-displayport/">https://hackropole.fr/fr/challenges/hardware/fcsc2025-hardware-displayport/</a>
+                                <br />
+                                作成者: PMR
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>学習</h3>
+                            <h2 class="section-title">ドキュメントと動画</h2>
+                            <p class="section-subtitle">
+                                現在ドキュメントはありません
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>ヘルプ</h3>
+                            <h2 class="section-title">ヒントとアドバイス</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discordスレッド</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="ページトップへ戻る" title="サイトトップへ戻る"></a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Cyrhades CTF</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if window is in iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Enable syntax highlighting:
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js not loaded!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Challenge #580</h3>
+                            <h2 class="section-title">DisplayPort</h2>
+                            <p>
+With my ultra-fast differential probe, I managed to measure a differential signal between pins #1 and #3 of the DisplayPort connector plugged into my PC. It is a binary serial signal at 1.62 Gigabits per second. I pre-processed the signal and was able to faithfully reconstruct the bit sequence transmitted by the video card (which is compatible with the DisplayPort 1.2 standard). I saved these bits into a binary file, in the following format: 8 bits per byte, the most significant bit being the first bit transmitted (MSB first).
+<br /><br />
+I know that when I captured the signal, my (only) screen was configured in 800x600 75Hz 24 bits/pixel RGB 1-lane, and was displaying a picture of my office colleagues holding the flag in their (small) hands.
+<br /><br />
+I lost this wonderful photo, will you be able to reconstruct it from this capture?
+<br /><br />
+Below is a picture showing where the measurement was made (for purely informational purposes, this is not needed to solve the challenge).
+<br /><br />
+Note: you don't need to buy any standards, look online!
+<br /><img src="assets/images/DisplayPort.jpg">
+                            </p>
+                            <h4>File to study:</h4>
+                            <p>../files/DisplayPort.bin</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Official link:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/hardware/fcsc2025-hardware-displayport/">https://hackropole.fr/fr/challenges/hardware/fcsc2025-hardware-displayport/</a>
+                                <br />
+                                Author: PMR
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Learning</h3>
+                            <h2 class="section-title">Documentation and Videos</h2>
+                            <p class="section-subtitle">
+                                No documentation available at the moment
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Help</h3>
+                            <h2 class="section-title">Tips and hints</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord
+                                    thread</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Back to top of page" title="Back to top of site"></a>
+    </div>
+</body>
+
+</html>

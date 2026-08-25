@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="th">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - CTF ของ Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ตรวจสอบว่าหน้าต่างอยู่ใน iframe หรือไม่
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // เปิดใช้งานการเน้นไวยากรณ์:
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js ไม่ได้โหลด!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Challenge #580</h3>
+                            <h2 class="section-title">DisplayPort</h2>
+                            <p>
+ด้วยหัววัดสัญญาณดิฟเฟอเรนเชียลความเร็วสูงพิเศษของฉัน ฉันสามารถวัดสัญญาณดิฟเฟอเรนเชียลระหว่างขา #1 และ #3 ของพอร์ต DisplayPort ที่เชื่อมต่อกับพีซีของฉันได้ มันคือสัญญาณอนุกรมแบบไบนารีที่ความเร็ว 1.62 กิกะบิตต่อวินาที ฉันได้ประมวลผลสัญญาณเบื้องต้นและสามารถสร้างลำดับบิตที่ส่งมาจากกราฟิกการ์ด (ซึ่งเข้ากันได้กับมาตรฐาน DisplayPort 1.2) ขึ้นมาใหม่ได้อย่างถูกต้อง ฉันได้บันทึกบิตเหล่านี้ลงในไฟล์ไบนารีในรูปแบบต่อไปนี้: 8 บิตต่อไบต์ โดยบิตที่มีนัยสำคัญสูงสุดจะถูกส่งเป็นบิตแรก (MSB first)
+<br /><br />
+ฉันรู้ว่าในตอนที่จับสัญญาณ หน้าจอ (จอเดียว) ของฉันถูกตั้งค่าไว้ที่ 800x600 75Hz 24 bits/pixel RGB 1-lane และแสดงภาพถ่ายของเพื่อนร่วมงานในออฟฟิศที่ถือแฟล็กไว้ในมือ (เล็กๆ) ของพวกเขา
+<br /><br />
+ฉันทำรูปภาพอันยอดเยี่ยมนี้หาย คุณจะสามารถกู้คืนรูปภาพจากสัญญาณที่จับได้นี้ได้หรือไม่?
+<br /><br />
+ด้านล่างนี้คือภาพถ่ายที่แสดงตำแหน่งที่ทำการวัด (เพื่อเป็นข้อมูลอ้างอิงเท่านั้น ไม่จำเป็นต้องใช้ในการแก้โจทย์)
+<br /><br />
+หมายเหตุ: ไม่จำเป็นต้องซื้อมาตรฐาน ค้นหาบนอินเทอร์เน็ตได้เลย!
+<br /><img src="assets/images/DisplayPort.jpg">
+                            </p>
+                            <h4>ไฟล์ที่ต้องศึกษา:</h4>
+                            <p>../files/DisplayPort.bin</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                ลิงก์ทางการ:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/hardware/fcsc2025-hardware-displayport/">https://hackropole.fr/fr/challenges/hardware/fcsc2025-hardware-displayport/</a>
+                                <br />
+                                ผู้เขียน: PMR
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>การเรียนรู้</h3>
+                            <h2 class="section-title">เอกสารและวิดีโอ</h2>
+                            <p class="section-subtitle">
+                                ยังไม่มีเอกสารในขณะนี้
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>ความช่วยเหลือ</h3>
+                            <h2 class="section-title">คำแนะนำและคำใบ้</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">กระทู้บน
+                                    Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="เลื่อนขึ้นด้านบน" title="กลับขึ้นด้านบน"></a>
+    </div>
+</body>
+
+</html>
